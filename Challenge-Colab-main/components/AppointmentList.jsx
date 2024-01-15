@@ -23,10 +23,10 @@ const AppointmentList = ({ appointment, index, }) => {
 
 
   return (
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+    <tr class="bg-[#232222] border-b border-purple-500">
       <th
         scope="row"
-        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        class="px-6 py-4 font-medium text-white whitespace-nowrap"
       >
         {appointment?.Patients[0].name}
       </th>

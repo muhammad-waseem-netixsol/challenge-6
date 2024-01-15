@@ -37,21 +37,21 @@ function Doctor({ doctor, index }) {
     const notReserved = doctor?.Appointments?.filter(a => a.status === "Not Reserved");
 
     return (
-        <tr className="border-b dark:border-neutral-500" key={doctor._id}>
+        <tr className="bg-[#1f1d1d] border-b border-purple-500" key={doctor._id}>
             <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
             <td className="whitespace-nowrap px-6 py-4">{doctor.name}</td>
             <td className="whitespace-nowrap px-6 py-4">{doctor.qualification}</td>
             <td className="whitespace-nowrap px-6 py-4">{doctor.exp} years</td>
             <td className="whitespace-nowrap px-6 py-4">{doctor.amount} Rs</td>
             <td className="whitespace-nowrap px-6 py-4">
-                <select value={value} onChange={onSelectSlot} name="slot" id="slot">
-                    <option>Select Slot</option>
-                    {notReserved?.map(a => <option value={a._id} key={a._id}>{a.startTime} - {a.endTime}</option>)}
+                <select className='bg-purple-500 cursor-pointer' value={value} onChange={onSelectSlot} name="slot" id="slot">
+                    <option className='cursor-pointer'>Select Slot</option>
+                    {notReserved?.map(a => <option className='cursor-pointer' value={a._id} key={a._id}>{a.startTime} - {a.endTime}</option>)}
                     {doctor?.Appointments?.length === 0 && <option disabled={true} value="0">No Slot</option>}
                 </select>
             </td>
             <td>
-                <button onClick={onReserveSlot} className='border px-2 py-1 bg-gray-100'>Reserve</button>
+                <button onClick={onReserveSlot} className='px-4 py-2 bg-green-500'>Reserve</button>
             </td>
         </tr>
 

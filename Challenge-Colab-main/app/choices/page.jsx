@@ -5,19 +5,27 @@ import { FaUserDoctor } from "react-icons/fa6";
 
 const choices = () => {
     return (
-        <div className='w-1/2 m-auto h-screen grid grid-cols-1 md:grid-cols-2 place-items-center'>
+        <div className='m-auto h-screen w-full p-5 flex justify-center items-center flex-col gap-4'>
+            <div className='p-form p-5 flex gap-5 flex-col'>
             <Link href={"/doctor"}>
-                <div className='w-[160px] h-[160px] lg:h-[200px] lg:w-[200px] xl:h-[300px] xl:w-[300px] bg-gray-700 rounded-full flex justify-center space-y-3 items-center flex-col hover:shadow-xl cursor-pointer'>
-                    <FaUserDoctor className='text-5xl text-white' />
-                    <p className='text-base text-white'>I am Doctor</p>
-                </div>
+                <button className='bg-[#eac726] py-2 w-[300px] text-black rounded-full flex justify-center items-center cursor-pointer'>
+                    <FaUserDoctor className='text-lg inline-block mr-4' />
+                    <span className='flex justify-center items-center'>Create doctor account</span>
+                </button>
             </Link>
             <Link href={"/patient"}>
-                <div className='w-[160px] h-[160px] lg:h-[200px] lg:w-[200px] xl:h-[300px] xl:w-[300px] bg-gray-700 rounded-full flex justify-center items-center flex-col hover:shadow-xl cursor-pointer space-y-3'>
-                    <FaHandHoldingMedical className='text-5xl text-white' />
-                    <p className='text-base text-white'>I am Patient</p>
-                </div>
+                <button className='bg-[#eac726] py-2 w-[300px] text-black rounded-full flex justify-center items-center cursor-pointer'>
+                    <FaHandHoldingMedical className='text-lg inline-block mr-4' />
+                    <span className='flex justify-center items-center'>Create patient account</span>
+                </button>
             </Link>
+            <Link href={"/"}>
+                <button className='bg-[#eac726] py-2 w-[300px] text-black rounded-full flex justify-center items-center cursor-pointer'>
+                    
+                    <span className='flex justify-center items-center'>Go Back To Login</span>
+                </button>
+            </Link>
+            </div>
         </div>
     )
 }

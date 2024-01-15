@@ -5,3 +5,32 @@
 input {
   @apply w-[400px] border border-gray-200 py-2 px-6 bg-zinc-100/40;
 }
+body{
+ background: black;
+  z-index: -10;
+}
+
+.p-form{
+  background: url("./rec1.png") 100% center no-repeat;
+  z-index: 10;
+  background: #1c1b1b !important;
+  opacity: .8;
+  border-radius: 20px;
+}
+/* sign up spinner */
+.input{
+  border-bottom: 1px solid white ;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+ opacity: 1;
+ display: block;
+ color: white;
+ width: 100%;
+ line-height: 1.5rem;
+ background: #232323;
+}
+/*  */
+.transition{
+  transition: all 2s;
+}
