@@ -56,7 +56,7 @@ const Sidebar = () => {
                             </Link>
                         </li>}
                         <li>
-                            <button onClick={() => { signOut(); router.push("/") }} className="flex items-center p-2 rounded-lg hover:text-black hover:bg-white">
+                            <button onClick={() => { signOut(); router.push("/") }} className="flex items-center p-2 rounded-lg w-full hover:text-black hover:bg-white">
                                 <span className=""><RiLogoutCircleRLine /></span>
                                 <span className="flex-1 ms-3 whitespace-nowrap lg:flex hidden">Logout</span>
                             </button>

@@ -4,10 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 export default function LoginForm() {
-  const {data:session} = useSession();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,8 +16,10 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setError("")
     setLoading(true);
+
     try {
       const res = await signIn("credentials", {
         email,
@@ -32,13 +33,15 @@ export default function LoginForm() {
         console.log(res)
         return;
       }
-      if(session?.user?.isDoctor){
-       return router.replace("dashboard");
-
-      }
-      console.log(session?.user)
-      router.replace("doctor-list");
-    } catch (error) {
+      if (res.ok) {
+        const session = await getSession();
+        if (session && session.user && session.user.loggedUser && session.user.isDoctor) {
+          router.push("/dashboard");
+        } else {
+          router.push("/doctor-list");
+        }
+    } 
+  } catch (error) {
       setLoading(false)
       console.log(error);
     }
