@@ -1,8 +1,10 @@
 const http = require("http");
 const { Server } = require("socket.io");
+const express = require("express");
 const cors = require("cors");
 
-const httpServer = http.createServer();
+const app = express();
+const httpServer = http.createServer(app);
 
 const io = new Server(httpServer, {
   cors: {
@@ -13,22 +15,26 @@ const io = new Server(httpServer, {
   },
 });
 
+// Socket.io logic (unchanged)
 io.on("connection", (socket) => {
   console.log("A user connected:", socket.id);
   socket.on("abc", (roomId) => {
     socket.join(roomId);
-    // console.log(`user with id-${socket.id} joined room - ${roomId}`);
-    console.log(roomId)
-    io.emit("refetch",roomId)
+    console.log(roomId);
+    io.emit("refetch", roomId);
   });
-
 
   socket.on("disconnect", () => {
     console.log("A user disconnected:", socket.id);
   });
 });
 
-const PORT = process.env.PORT || 3001;
+// Express route
+app.get("/", (req, res) => {
+  res.send("Hello, World! This is your HTTP route.");
+});
+
+const PORT = 3001;
 httpServer.listen(PORT, () => {
   console.log(`Socket.io server is running on port ${PORT}`);
 });
