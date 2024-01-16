@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("https://socket-server-liard.vercel.app");
 
     newSocket.on('connect', () => {
       console.log('Connected to WebSocket');
