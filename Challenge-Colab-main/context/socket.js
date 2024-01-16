@@ -1,3 +1,3 @@
 import { io } from "socket.io-client"
 
-export default io('http://localhost:3001')
+export default io('https://socket-server-liard.vercel.app')
