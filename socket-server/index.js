@@ -5,10 +5,17 @@ const cors = require("cors");
 
 const app = express();
 const httpServer = http.createServer(app);
+// to handler cors
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000", // Replace with your frontend URL
+    origin: "http://localhost:3000", 
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true,
