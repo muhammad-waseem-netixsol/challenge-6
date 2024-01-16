@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { getSession } from "next-auth/react";
@@ -44,7 +44,6 @@ export default function LoginForm() {
       setLoading(false)
     }
   };
-
   return (
     <div class="md:mt-20 p-form z-50 sm:w-1/2 mx-auto p-5 xl:w-[700px]">
 
