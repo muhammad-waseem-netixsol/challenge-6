@@ -6,7 +6,7 @@ import Sidebar from '@/components/Sidebar'
 
 const AppointmentList = () => {
   return (
-    <div className='lg:ml-64 sm:ml-44 overflow-hidden p-6'>
+    <div className='lg:ml-64 ml-20 overflow-hidden p-6'>
       <Sidebar />
       <AddSlots />
       <Slots />

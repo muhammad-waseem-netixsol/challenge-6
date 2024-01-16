@@ -3,7 +3,7 @@ import React from 'react'
 import Sidebar from '@/components/Sidebar'
 const appointments = () => {
   return (
-    <div className='lg:ml-64 sm:ml-44 p-4'>
+    <div className='lg:ml-64 sm:ml-14 p-4'>
       <Sidebar />
       <Appointment/>
     </div>

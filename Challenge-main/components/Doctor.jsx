@@ -31,7 +31,6 @@ function Doctor({ doctor, index }) {
         socket.emit("abc", roomId);
 
         const resp = await reserve.json();
-        console.log(resp)
     };
 
     const notReserved = doctor?.Appointments?.filter(a => a.status === "Not Reserved");

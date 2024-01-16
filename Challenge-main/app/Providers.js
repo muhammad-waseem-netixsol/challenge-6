@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("https://socket-server-liard.vercel.app");
+    const newSocket = io("http://localhost:3001");
 
     newSocket.on('connect', () => {
       console.log('Connected to WebSocket');
@@ -30,7 +30,6 @@ export const AuthProvider = ({ children }) => {
 
   const updateSlot = () => {
     setRefetch("Refetch");
-    console.log("update");
   };
   return (<SessionProvider>
     <useClinicContext.Provider value={{ updateSlot: updateSlot, refetchSlot: refetch, socket: socket }}>

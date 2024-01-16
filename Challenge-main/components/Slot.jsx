@@ -15,7 +15,6 @@ function Slot({appointment, index,}) {
         const res = await deleteApp.json();
         let roomId = 12
         socket.emit("abc", roomId);
-        console.log("deleted", res);
     };
   return (
     <tr className="bg-[#232222] border-b border-purple-500 text-white">

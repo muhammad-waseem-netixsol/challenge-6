@@ -12,12 +12,10 @@ const AppointmentList = ({ appointment, index, }) => {
       body: JSON.stringify({ appointmentId: appointment._id })
     })
     if (data.status === 200) {
-      alert("checked");
       let roomId = 12
       socket.emit("abc", roomId);
     }
     const resp = data.json()
-    console.log(resp)
   };
 
 

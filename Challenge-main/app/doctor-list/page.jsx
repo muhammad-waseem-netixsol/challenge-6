@@ -7,14 +7,17 @@ import { useClinicContext } from '@/context/clinicContext';
 function doctorList() {
     const [doctorList, setdoctorList] = useState([]);
     const { socket } = useContext(useClinicContext);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
 
         getAllDoctors();
     }, []);
     const getAllDoctors = async () => {
+        setLoading(true);
         const res = await fetch('/api/register/doctor');
         const data = await res.json();
+        setLoading(false)
         setdoctorList(data);
     }
 
@@ -27,9 +30,9 @@ function doctorList() {
             }
           }, []);
     return (
-        <div className='lg:ml-64 sm:ml-44 space-y-2 p-3 overflow-hidden'>
+        <div className='lg:ml-64 sm:ml-20 space-y-2 p-3 overflow-hidden'>
             <Sidebar />
-            <DoctorList doctorList={doctorList}  />
+            <DoctorList doctorList={doctorList} loading={loading} />
         </div>
     )
 }

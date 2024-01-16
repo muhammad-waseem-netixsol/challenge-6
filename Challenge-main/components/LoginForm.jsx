@@ -29,8 +29,7 @@ export default function LoginForm() {
 
       if (res.error) {
         setError("Invalid Credentials");
-        setLoading(false)
-        console.log(res)
+        setLoading(false);
         return;
       }
       if (res.ok) {
@@ -43,7 +42,6 @@ export default function LoginForm() {
     } 
   } catch (error) {
       setLoading(false)
-      console.log(error);
     }
   };
 

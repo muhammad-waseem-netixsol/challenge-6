@@ -36,7 +36,6 @@ const SpringModal = ({ isOpen, setIsOpen, stateManage, setStateManage }) => {
     };
 
     const handleAddSlot = async () => {
-        console.log(moment(startTime.$d).format('HH:mm'))
         const res = await fetch("/api/appointments", {
             method: "POST",
             header: {
@@ -48,8 +47,7 @@ const SpringModal = ({ isOpen, setIsOpen, stateManage, setStateManage }) => {
                 doctorId: session.user.loggedUser._id
             })
         })
-        const data = await res.json()
-        console.log(data)
+        const data = await res.json();
         let roomId = 12
         socket.emit("abc", roomId);
         setIsOpen(false)

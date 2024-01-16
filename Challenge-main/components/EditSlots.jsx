@@ -7,7 +7,6 @@ import moment from "moment";
 
 const EditSlots = ({ selectedEndTime, selectedStartTime,status }) => {
     const [isOpen, setIsOpen] = useState(false);
-    console.log(typeof selectedEndTime, typeof selectedStartTime,status)
     return (
         <>
             <button
@@ -39,7 +38,6 @@ const SpringModal = ({ isOpen, setIsOpen, selectedEndTime, selectedStartTime,sta
     const handleGetTimeRange = () => {
         const formattedStartTime = moment(startTime.$d).format('HH:mm');
         const formattedEndTime = moment(endTime.$d).format('HH:mm');
-        console.log('Selected Time Range:', formattedStartTime, formattedEndTime);
     };
 
     return (

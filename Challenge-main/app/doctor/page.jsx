@@ -21,7 +21,6 @@ export default function DoctorForm (){
     })
     const onSaveDoctorProfile = async e => {
         e.preventDefault();
-        console.log(valueDoc)
         if(valueDoc.address.trim() === "" || valueDoc.name.trim() === "" || valueDoc.email.trim() === "" || valueDoc.password.trim() === "" || valueDoc.age.trim() === "" || valueDoc.qualification.trim() === "" || valueDoc.specialz.trim() === "" || valueDoc.gender.trim() === "" || valueDoc.experience.trim() === "" || valueDoc.amount.trim() === ""){
             return setError("Invalid credentials entered!")
         };

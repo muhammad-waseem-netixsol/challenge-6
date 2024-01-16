@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import Doctor from './Doctor';
 
-export default function DoctorList({ doctorList }) {
+export default function DoctorList({ doctorList, loading }) {
     
     return (
         <div className="flex flex-col">
@@ -25,9 +25,12 @@ export default function DoctorList({ doctorList }) {
                                {doctorList?.Doctors?.map((d, i) => <Doctor index={i} key={d._id} doctor={d} />)} 
                             </tbody>
                         </table>
+                           
                     </div>
                 </div>
             </div>
+            {loading && <div class="lds-spinner mx-auto"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
+                        
         </div>
     );
 }

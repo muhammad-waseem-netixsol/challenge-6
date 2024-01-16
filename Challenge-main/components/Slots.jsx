@@ -22,10 +22,9 @@ export default function Slots({ }) {
     try {
       const response = await fetch(`/api/appointments/${session.user.loggedUser._id}`);
       const slotsData = await response.json();
-      console.log(slotsData.data)
+  
       setSlots(slotsData.data);
     } catch (error) {
-      console.error("Error fetching slots:", error);
     }
   };
 
