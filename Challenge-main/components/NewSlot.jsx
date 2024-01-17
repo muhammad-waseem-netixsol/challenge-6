@@ -49,7 +49,7 @@ const SpringModal = ({ isOpen, setIsOpen, stateManage, setStateManage }) => {
         })
         const data = await res.json();
         let roomId = 12
-        socket.emit("abc", roomId);
+        socket.emit("listening_from_frontend", roomId);
         setIsOpen(false)
     }
 

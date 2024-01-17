@@ -11,18 +11,15 @@ const io = new Server(httpServer, {
   },
 });
 io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id);
-  socket.on("abc", (roomId) => {
+  socket.on("listening_from_frontend", (roomId) => {
     socket.join(roomId);
-    // console.log(`user with id-${socket.id} joined room - ${roomId}`);
-    console.log(roomId)
-    io.emit("refetch",roomId)
+    io.emit("emiting_from_server",roomId)
   });
   socket.on("disconnect", () => {
-    console.log("A user disconnected:", socket.id);
+    console.log("Socket disconnected!!");
   });
 });
 const PORT = 3001;
 httpServer.listen(PORT, () => {
-  console.log(`Socket.io server is running on port ${PORT}`);
+  console.log(`Socket server is running...`);
 });

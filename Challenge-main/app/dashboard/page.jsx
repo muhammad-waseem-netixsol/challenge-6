@@ -53,7 +53,7 @@ export default function Dashboard() {
   };
   useEffect(() => {
     if (socket) {
-      socket.on("refetch", (roomId) => {
+      socket.on("emiting_from_server", (roomId) => {
         getSlots();
       });
     }

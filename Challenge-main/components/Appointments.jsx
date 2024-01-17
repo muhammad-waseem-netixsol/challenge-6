@@ -13,7 +13,7 @@ const AppointmentList = ({ appointment, index, }) => {
     })
     if (data.status === 200) {
       let roomId = 12
-      socket.emit("abc", roomId);
+      socket.emit("listening_from_frontend", roomId);
     }
     const resp = data.json()
   };

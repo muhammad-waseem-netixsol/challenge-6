@@ -6,9 +6,6 @@ import { useClinicContext } from '@/context/clinicContext';
 import { io } from 'socket.io-client';
 import { useSession } from 'next-auth/react';
 
-
-
-
 export default function Slots({ }) {
   const { data: session } = useSession()
   const { socket } = useContext(useClinicContext);
@@ -22,7 +19,6 @@ export default function Slots({ }) {
     try {
       const response = await fetch(`/api/appointments/${session.user.loggedUser._id}`);
       const slotsData = await response.json();
-  
       setSlots(slotsData.data);
     } catch (error) {
     }
@@ -30,7 +26,7 @@ export default function Slots({ }) {
 
   useEffect(() => {
     if (socket) {
-      socket.on("refetch", (roomId) => {
+      socket.on("emiting_from_server", (roomId) => {
         getSlots();
       });
     }

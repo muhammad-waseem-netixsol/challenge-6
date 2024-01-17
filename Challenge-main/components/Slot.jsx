@@ -14,7 +14,7 @@ function Slot({appointment, index,}) {
         });
         const res = await deleteApp.json();
         let roomId = 12
-        socket.emit("abc", roomId);
+        socket.emit("listening_from_frontend", roomId);
     };
   return (
     <tr className="bg-[#232222] border-b border-purple-500 text-white">

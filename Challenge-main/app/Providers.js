@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io("http://192.168.18.70:3001");
     newSocket.on("connect", () => {
-      console.log("Connected to WebSocket");
+      console.log("Socket connected in Next App!");
     });
     setSocket(newSocket);
     return () => {

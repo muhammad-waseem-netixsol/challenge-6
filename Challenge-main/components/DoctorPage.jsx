@@ -29,7 +29,7 @@ function Doctor({ doctor, index }) {
             }),
         });
         let roomId = 12
-        socket.emit("abc", roomId);
+        socket.emit("listening_from_frontend", roomId);
         const resp = await reserve.json();
         setLoading(false);
     };
