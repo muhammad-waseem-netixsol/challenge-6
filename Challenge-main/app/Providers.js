@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io("http://192.168.18.211:3001");
+    const newSocket = io("http://192.168.18.70:3001");
     newSocket.on("connect", () => {
       console.log("Connected to WebSocket");
     });

@@ -3,13 +3,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useSession } from 'next-auth/react';
 import io from "socket.io-client";
 import { useClinicContext } from '@/context/clinicContext';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 // let socket = io("http://localhost:3001");
 // import socket from '@/context/socket';
 
 function Doctor({ doctor, index }) {
     const { data: session } = useSession();
     const [value, setValue] = useState("0");
-
+    const [loading, setLoading] = useState(false);
     const { socket } = useContext(useClinicContext);
     const onSelectSlot = e => {
 
@@ -17,9 +18,9 @@ function Doctor({ doctor, index }) {
     };
     const onReserveSlot = async () => {
         if (value === "0") {
-            return alert("invalid");
+            return alert("Please select a slot first");
         };
-
+        setLoading(true);
 
         const reserve = await fetch("/api/register/patient/" + session?.user?.loggedUser?._id, {
             method: "PUT",
@@ -29,8 +30,8 @@ function Doctor({ doctor, index }) {
         });
         let roomId = 12
         socket.emit("abc", roomId);
-
         const resp = await reserve.json();
+        setLoading(false);
     };
 
     const notReserved = doctor?.Appointments?.filter(a => a.status === "Not Reserved");
@@ -43,14 +44,14 @@ function Doctor({ doctor, index }) {
             <td className="whitespace-nowrap px-6 py-4">{doctor.exp} years</td>
             <td className="whitespace-nowrap px-6 py-4">{doctor.amount} Rs</td>
             <td className="whitespace-nowrap px-6 py-4">
-                <select className='bg-purple-500 cursor-pointer' value={value} onChange={onSelectSlot} name="slot" id="slot">
+                <select className='bg-purple-500 py-2 cursor-pointer' value={value} onChange={onSelectSlot} name="slot" id="slot">
                     <option className='cursor-pointer'>Select Slot</option>
                     {notReserved?.map(a => <option className='cursor-pointer' value={a._id} key={a._id}>{a.startTime} - {a.endTime}</option>)}
                     {doctor?.Appointments?.length === 0 && <option disabled={true} value="0">No Slot</option>}
                 </select>
             </td>
             <td>
-                <button onClick={onReserveSlot} className='px-4 py-2 bg-green-500'>Reserve</button>
+                <button onClick={onReserveSlot} className='flex items-center gap-2 px-4 py-3 bg-green-500 text-white'>{loading ? "Booking" : "Reserve"}{loading && <AiOutlineLoading3Quarters className='animate-spin' />}</button>
             </td>
         </tr>
 
