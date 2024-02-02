@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
-import AppointmentList from "./AppointmentList";
+import AppointmentList from "./Appointments";
 import { useSession } from "next-auth/react";
 import { useClinicContext } from '@/context/clinicContext';
 

@@ -1,6 +1,6 @@
 "use client"
 import React, {useEffect, useState} from 'react';
-import Doctor from './Doctor';
+import Doctor from './DoctorPage';
 
 export default function DoctorList({ doctorList, loading }) {
     

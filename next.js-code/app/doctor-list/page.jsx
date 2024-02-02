@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-import DoctorList from '@/components/DoctorList'
+import DoctorList from '@/components/Doctors'
 import React, { useContext, useEffect, useState } from 'react'
 import Sidebar from '@/components/Sidebar';
 import { useClinicContext } from '@/context/clinicContext';

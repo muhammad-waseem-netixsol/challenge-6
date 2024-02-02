@@ -1,5 +1,5 @@
 "use client"
-import AddSlots from '@/components/AddSlots'
+import AddSlots from '@/components/NewSlot'
 import Slots from '@/components/Slots'
 import React, { useState } from 'react'
 import Sidebar from '@/components/Sidebar'
